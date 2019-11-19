@@ -16,7 +16,7 @@ const INDEX_HTML_URL = new URL(INDEX_HTML_PATH, self.location).toString();
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    fetch(INDEX_HTML_URL, { credentials: 'include' }).then((response) => {
+    fetch(INDEX_HTML_URL, { credentials: 'include', cache: 'reload' }).then((response) => {
       return caches
         .open(CACHE_NAME)
         .then((cache) => cache.put(INDEX_HTML_URL, response));
